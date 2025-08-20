@@ -1,5 +1,3 @@
-import { builtinModules } from "module";
-
 export const education = {
     school: "University of Virginia",
     degree: "B.S. in Computer Science (School of Engineering), Minor in Business Commerce",
