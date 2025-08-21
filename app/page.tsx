@@ -1,13 +1,13 @@
 import Hero from '@/app/components/hero';
 import AboutPreview from '@/app/components/about-overview';
-// import ProjectSection from '@/app/components/projects-section';
+import ProjectSection from '@/app/components/projects-section';
 
 export default function Home() {
   return (
     <>
       <Hero />
       <AboutPreview />
-      {/* <ProjectSection limit={5} /> */}
+      <ProjectSection featuredOnly />
     </>
   );
 }
