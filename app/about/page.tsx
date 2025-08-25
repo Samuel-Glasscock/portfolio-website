@@ -13,9 +13,31 @@ export default function AboutPage() {
         {/* Page title + brief intro */}
         <header className="mb-8">
           <h1>About me</h1>
-          <p className="mt-2 max-w-prose text-base leading-7 text-muted-foreground">
-            I&apos;m a CS student at the University of Virginia who enjoys building efficient web systems,
-            finance tools, and practical automation systems.
+          <p className="my-2 max-w-prose text-base leading-7 text-muted-foreground">
+            I&apos;ve always been passionate about applying my software development skills to real world causes,
+            specifically to address practical business needs. This interest led me to pursue a Commerce Business
+            Minor alongside my Computer Science degree, which piqued my interest for finance and the ways technology
+            can make financial systems more efficient and accessible.
+          </p>
+          <p className="mt-6 max-w-prose text-base leading-7 text-muted-foreground">
+            At the University of Virginia, I&apos;ve had the opportunity to deepen this intersection through coursework in 
+            software engineering, algorithms, and finance, while also gaining hands-on experience through internships and 
+            independent projects. Whether it was building web apps, exploring cutting edge fintech technologies, or 
+            collaborating on class projects, I&apos;ve found that I thrive in environments where technical challenges meet 
+            strategic impact.
+          </p>
+          <p className="mt-6 max-w-prose text-base leading-7 text-muted-foreground">
+            Beyond technical skills, I place a strong emphasis on teamwork, communication, and mentorship. Serving as a 
+            teaching assistant for our Software Engineering course here at UVA has allowed me to guide peers through complex 
+            concepts, while reinforcing my own ability to break down problems and foster collaboration among teams. These 
+            experiences have shaped my approach to problem solving: detail-oriented, iterative, and always open to learning 
+            from others.
+          </p>
+          <p className="mt-6 max-w-prose text-base leading-7 text-muted-foreground">
+            Looking ahead, I am eager to apply my skills in software development and financial technologies to solve meaningful 
+            problems that create measurable impact. I&apos;m particularly drawn to opportunities that combine innovative technology,
+            data-driven insights, and cross functiontional collaboration. Outside of academics and work, I enjoy music, playing 
+            guitar, and working on side projects that let me experiment with new ideas and technologies to continuously learn.
           </p>
         </header>
 
