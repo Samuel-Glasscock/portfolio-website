@@ -16,7 +16,7 @@ export const projects: Project[] = [
     {
         id: "UVA-honor_reporting",
         title: "UVA Honor Code Reporting App",
-        summary: "_",
+        summary: "A form-based flow for student to report UVA Honor code violations.",
         timeSpan: "February - May 2024",
         image: "",
         tech: ["Django", "Bootstrap", "PostgreSQL", "Google Login", "S3"],
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     {
         id: "band-collab",
         title: "Band Collaboration Tool",
-        summary: "",
+        summary: "An all-around collaboration system for bands to come to one place to view gigs/practices, vote on songs, and download setlists to their provider of choice.",
         timeSpan: "July 2025 - Present",
         image: "",
         tech: ["Django", "Bootstrap",],
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     {
         id: "babylon-micro-farms-chatbot",
         title: "Babylon Micro-Farms Chatbot",
-        summary: "",
+        summary: "A custom customer service chatbot built to be integrated into Babylon Micro-Farm's website.",
         timeSpan: "January 2024",
         image: "",
         tech: ["React", "OpenAI Assistants API",],
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     {
         id: "iot-data-visualization",
         title: "IoT Data Collection and Visualization",
-        summary: "",
+        summary: "Capturing data through an edge to end data flow project. Capturing data via a BMP581 environmental data sensor into an Odroid-C2 and relaying that data over Modbus to a PLC and to an InfluxDB to be visualized via Grafana.",
         timeSpan: "July 2025",
         image: "",
         tech: [""],
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     {
         id: "spotify-playlist-automation",
         title: "Spotify Playlist Automation",
-        summary: "",
+        summary: "Automating band setlist song choice voting using google sheets and spotipy.",
         timeSpan: "March 2024",
         image: "",
         tech: ["Python",],
