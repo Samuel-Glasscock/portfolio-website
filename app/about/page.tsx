@@ -5,6 +5,21 @@ import {
   experiences,
   skills,
 } from "@/lib/profile";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "I'm Samuel, a UVA CS student & software engineer focused on web platforms, financial dashboards, and data-driven tooling.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    url: "/about",
+    title: "About | Samuel Glasscock",
+    description:
+      "Background, interests, and what I value when building software.",
+    images: [{ url: "/og/about.png", width: 1200, height: 630 }],
+  },
+};
 
 export default function AboutPage() {
   return (
