@@ -16,8 +16,47 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://samuelglasscock.dev"),
-  title: "Samuel Glasscock - Software Engineer",
+  title : {
+    default: "Samuel Glasscock - Software Engineer",
+    template: "%s | Samuel Glasscock",
+  },
   description: "Portfolio, projects, interests",
+  keywords : [
+    "Samuel Glasscock", 
+    "software engineer",
+    "full stack",
+    "UVA",
+    "portfolio",
+    "dev"
+  ],
+  authors: [{ name: "Samuel Glasscock", url: "https://samuelglasscock.dev" }],
+  creator: "Samuel Glasscock",
+  publisher: "Samuel Glasscock",
+  alternates: { canonical: "/" },
+  // openGraph: {
+  //   type: "website",
+  //   locale: "en_US",
+  //   siteName: "Samuel Glasscock",
+  //   url: "https://samuelglasscock.dev",
+  //   title: "Samuel Glasscock — Software Engineer",
+  //   description:
+  //     "Full-stack engineer building web and data projects.",
+  //   images: [{ url: "/og/og-default.png", width: 1200, height: 630 }],
+  // },
+   robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 // we want to do this before painting to avoid flashing
