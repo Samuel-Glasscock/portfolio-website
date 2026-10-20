@@ -1,19 +1,27 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 type Mode = "light" | "dark";
 
-export default function ThemeToggle() {
-  // null = not yet hydrated; don't render state-dependent attrs/text
-  const [mode, setMode] = useState<Mode | null>(null);
+// The <html> class (set by the pre-paint script in layout.tsx) is the source of truth
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  return () => observer.disconnect();
+}
 
-  // After mount, read the actual DOM state set by your pre-paint script
-  useEffect(() => {
-    const root = document.documentElement;
-    const current: Mode = root.classList.contains("dark") ? "dark" : "light";
-    setMode(current);
-  }, []);
+function getSnapshot(): Mode {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+// null = server render / not yet hydrated; don't render state-dependent attrs/text
+function getServerSnapshot(): Mode | null {
+  return null;
+}
+
+export default function ThemeToggle() {
+  const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const toggle = () => {
     if (!mode) return;
@@ -22,7 +30,6 @@ export default function ThemeToggle() {
     root.classList.toggle("dark", next === "dark");
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
-    setMode(next);
   };
 
   // During SSR/first paint, render a stable shell with no dynamic text/attrs

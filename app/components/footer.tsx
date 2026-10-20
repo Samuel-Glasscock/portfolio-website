@@ -1,6 +1,7 @@
 import Container from '@/app/components/container'
 import Link from 'next/link'
-import { SiGithub, SiLinkedin, SiGmail } from 'react-icons/si'
+import { FaLinkedin } from 'react-icons/fa6'
+import { SiGithub, SiGmail } from 'react-icons/si'
 
 function SocialIcon({
     href, 
@@ -42,7 +43,7 @@ export default function Footer() {
                                 <SiGithub className='h-5 w-5' />
                             </SocialIcon>
                             <SocialIcon href='https://www.linkedin.com/in/samuel-glasscock/' label='LinkedIn'>
-                                <SiLinkedin className='h-5 w-5' />
+                                <FaLinkedin className='h-5 w-5' />
                             </SocialIcon>
                             <SocialIcon href='mailto:samuel.c.glasscock@gmail.com' label='Email'>
                                 <SiGmail className='h-5 w-5' />
