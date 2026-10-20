@@ -1,4 +1,4 @@
-import ProjectsSection from "../components/projects-section";
+import ProjectsSection from "@/app/components/projects-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,10 +16,4 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return <ProjectsSection featuredOnly={false} showHeader={false} />;
-  // return (
-    // <section className="prose dark:prose-invert max-w-none">
-    //   <h1>Projects</h1>
-    //   <p>Coming soon.</p>
-    // </section>
-  // );
 }

@@ -1,5 +1,5 @@
-import Container from "./container";
-import ProjectCard from "./project-card";
+import Container from "@/app/components/container";
+import ProjectCard from "@/app/components/project-card";
 import { getAllProjects, getFeaturedProjects } from "@/lib/projects";
 import Link from "next/link";
 
