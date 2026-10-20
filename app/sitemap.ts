@@ -1,14 +1,11 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { siteUrl } from '@/lib/site';
+
+const routes = ['', '/about', '/projects'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://samuelglasscock.dev',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://samuelglasscock.dev',
-      lastModified: new Date(),
-    },
-  ];
+  return routes.map((route) => ({
+    url: `${siteUrl}${route}`,
+    lastModified: new Date(),
+  }));
 }
