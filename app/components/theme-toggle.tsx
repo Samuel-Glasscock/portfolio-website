@@ -1,6 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
+import { PiMoon, PiSun } from 'react-icons/pi';
 
 type Mode = "light" | "dark";
 
@@ -37,27 +38,31 @@ export default function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex items-center gap-2 rounded-lg bg-foreground px-3 py-1.5 text-sm text-background"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-foreground"
         aria-label="Toggle theme"
         // Prevent tiny differences from warning during hydration
         suppressHydrationWarning
-      >
-        Theme
-      </button>
+      />
     );
   }
 
-  // Label (and inverted colors) preview the mode the button switches to
+  // Icon, label, and inverted colors preview the mode the button switches to
   const isDark = mode === "dark";
+  const label = isDark ? "Switch to light mode" : "Switch to dark mode";
 
   return (
     <button
       type="button"
       onClick={toggle}
-      className="inline-flex items-center gap-2 rounded-lg bg-foreground px-3 py-1.5 text-sm text-background transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-foreground transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      aria-label={label}
+      title={label}
     >
-      {isDark ? "☀️ Light" : "🌙 Dark"}
+      {isDark ? (
+        <PiSun className="h-5 w-5 text-sun" aria-hidden="true" />
+      ) : (
+        <PiMoon className="h-5 w-5 text-moon" aria-hidden="true" />
+      )}
     </button>
   );
 }
