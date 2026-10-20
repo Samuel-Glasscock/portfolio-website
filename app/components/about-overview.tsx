@@ -39,10 +39,10 @@ export default function AboutPreview() {
                     <div className='grid gap-3 sm:grid-cols-2'>
                         {Object.entries(skills).map(([group, items]) => (
                             <div key={group}>
-                                <div className='text-s font-semibold text-muted-foreground'>{group}</div>
+                                <div className='text-sm font-semibold text-muted-foreground'>{group}</div>
                                 <div className='mt-1 flex flex-wrap gap-2'>
                                     {items.map((s) => (
-                                        <span key={s} className='rounded-md bg-accent/30 px-2 py-0.5 text-s text-accent-foreground/90'>
+                                        <span key={s} className='rounded-md bg-accent/30 px-2 py-0.5 text-sm text-accent-foreground/90'>
                                             {s}
                                         </span>
                                     ))}

@@ -130,9 +130,9 @@ export default function RootLayout({
         {/* Help form controls pick correct defaults */}
         <meta name="color-scheme" content="dark light" />
       </head>
-      <body className="bg-background text-foreground min-h-screen">
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground font-sans antialiased min-h-screen`}>
         <Navbar />
-        <main className="mx-auto max-w-3xl px-4 py-10">{children}</main>
+        <main className="py-10">{children}</main>
         <Footer />
       </body>
   </html>

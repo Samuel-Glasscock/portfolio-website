@@ -31,9 +31,9 @@ function SocialIcon({
 export default function Footer() {
     const year = new Date().getFullYear();
     return (
-        <footer className='border-t border-border/60 bg-background/8- backdrop-blur'>
+        <footer className='border-t border-border/60 bg-background'>
             <Container>
-                <div className='py-4 grid gap-6 sm:grid-cols-[1fr,auto] items-start'>
+                <div className='py-4 grid gap-6 sm:grid-cols-[1fr_auto] items-start'>
                     {/* Brand, tagline, socials */}
                     <div>
                         {/* <p className='font-medium'>Samuel Glasscock</p>

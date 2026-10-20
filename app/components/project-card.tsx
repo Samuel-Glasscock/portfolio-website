@@ -25,18 +25,16 @@ export default function ProjectCard({
     return (
         <div className='group overflow-hidden rounded-xl border border-border bg-background transition-colors hover:bg-muted'>
             {/* Optional Image */}
-            {hasImage ? (
-                <div className='relative aspect-[16/9]'>
+            {hasImage && (
+                <div className='relative aspect-video'>
                     <Image
-                        src='{project.image}'
+                        src={project.image!}
                         alt=''
                         fill
-                        sizes='(min-width: 768px) 33vm, 100vm'
+                        sizes='(min-width: 640px) 50vw, 100vw'
                         className='object-cover'
                     />
                 </div>
-            ) : (
-                <div className='aspect-[16-9] bg-muted'/>
             )}
 
             <div className={pad}>  
@@ -46,13 +44,13 @@ export default function ProjectCard({
                         {project.title}
                     </h3>
                     {project.timeSpan && (
-                        <span className="text-s text-muted-foreground">{project.timeSpan}</span>
+                        <span className="text-sm text-muted-foreground">{project.timeSpan}</span>
                     )}
                     </div>
 
                     {/* Status */}
                     <div className="mt-2">
-                    <span className={`inline-block rounded-md px-2 py-0.5 text-s ${statusStyles[project.status]}`}>
+                    <span className={`inline-block rounded-md px-2 py-0.5 text-sm ${statusStyles[project.status]}`}>
                         {project.status}
                     </span>
                     </div>
@@ -69,7 +67,7 @@ export default function ProjectCard({
                         t ? (
                             <span
                             key={t}
-                            className="rounded-md bg-accent/30 px-2 py-0.5 text-s text-accent-foreground/90"
+                            className="rounded-md bg-accent/30 px-2 py-0.5 text-sm text-accent-foreground/90"
                             >
                             {t}
                             </span>

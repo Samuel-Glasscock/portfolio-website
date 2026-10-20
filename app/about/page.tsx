@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     title: "About | Samuel Glasscock",
     description:
       "Background, interests, and what I value when building software.",
-    images: [{ url: "/og/about.png", width: 1200, height: 630 }],
   },
 };
 

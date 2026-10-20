@@ -11,7 +11,6 @@ export const metadata: Metadata = {
     title: "Projects | Samuel Glasscock",
     description:
       "Case studies with stack, code, and site showcases where available.",
-    images: [{ url: "/og/projects.png", width: 1200, height: 630 }],
   },
 };
 

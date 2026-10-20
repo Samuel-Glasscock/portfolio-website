@@ -1,3 +1,4 @@
+import Container from "./container";
 import ProjectCard from "./project-card";
 import { getAllProjects, getFeaturedProjects } from "@/lib/projects";
 import Link from "next/link";
@@ -15,7 +16,7 @@ export default function ProjectsSection({
 
   return (
     <section className="py-10">
-      <div className="mx-auto max-w-4xl px-4">
+      <Container>
         {showHeader && (
           <div className="mb-4 flex items-center justify-between">
             <h2>Projects</h2>
@@ -29,7 +30,7 @@ export default function ProjectsSection({
             <ProjectCard key={p.id} project={p} variant={variant} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
