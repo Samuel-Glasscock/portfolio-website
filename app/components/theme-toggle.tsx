@@ -37,8 +37,8 @@ export default function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted px-3 py-1.5 text-sm"
-        aria-label="Toggle dark mode"
+        className="inline-flex items-center gap-2 rounded-lg bg-foreground px-3 py-1.5 text-sm text-background"
+        aria-label="Toggle theme"
         // Prevent tiny differences from warning during hydration
         suppressHydrationWarning
       >
@@ -47,17 +47,17 @@ export default function ThemeToggle() {
     );
   }
 
+  // Label (and inverted colors) preview the mode the button switches to
   const isDark = mode === "dark";
 
   return (
     <button
       type="button"
       onClick={toggle}
-      className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted px-3 py-1.5 text-sm hover:opacity-90"
-      aria-pressed={isDark}
-      aria-label="Toggle dark mode"
+      className="inline-flex items-center gap-2 rounded-lg bg-foreground px-3 py-1.5 text-sm text-background transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDark ? "🌙 Dark" : "☀️ Light"}
+      {isDark ? "☀️ Light" : "🌙 Dark"}
     </button>
   );
 }
