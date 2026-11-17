@@ -1,3 +1,5 @@
+import type { TechName } from "@/lib/tech";
+
 export const education = {
     school: "University of Virginia",
     degree: "B.S. in Computer Science (School of Engineering), Minor in Business Commerce",
@@ -52,9 +54,9 @@ export const experiences: Experience[] = [
     }
 ]
 
-export const skills = {
-    Languages: ["Python", "JavaScript/TypeScript", "C#", "Java", "SQL"],
-    Frameworks: ["Django", "Next.js/React", ".NET"],
-    DevOps: ["Docker", "Git/Github/Gitlab", "Github Actions CI/CD", "Heroku", "Vercel"],
+export const skills: Record<string, TechName[]> = {
+    Languages: ["Python", "JavaScript", "TypeScript", "C#", "Java", "SQL"],
+    Frameworks: ["Django", "Next.js", "React", ".NET"],
+    DevOps: ["Docker", "Git", "GitHub", "GitLab", "GitHub Actions", "Heroku", "Vercel"],
     Data: ["PostgreSQL", "InfluxDB", "Grafana"],
 };

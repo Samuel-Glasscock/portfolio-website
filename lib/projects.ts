@@ -1,3 +1,5 @@
+import type { TechName } from "@/lib/tech";
+
 export type ProjectStatus = "Deployed" | "Completed" | "In Progress" | "Archived";
 
 export type Project = {
@@ -6,7 +8,7 @@ export type Project = {
     summary: string;
     image?: string;
     timeSpan?: string;
-    tech?: string[];
+    tech?: TechName[];
     featured: boolean;
     repo?: string;
     status: ProjectStatus;
@@ -19,7 +21,7 @@ export const projects: Project[] = [
         summary: "A form-based flow for student to report UVA Honor code violations.",
         timeSpan: "February - May 2024",
         image: "",
-        tech: ["Django", "Bootstrap", "PostgreSQL", "Google Login", "S3"],
+        tech: ["Django", "Bootstrap", "PostgreSQL", "Google Login", "AWS S3"],
         featured: true,
         repo: "https://github.com/Samuel-Glasscock/Hoos-Reporting-Honor",
         status: "Completed",
@@ -52,7 +54,7 @@ export const projects: Project[] = [
         summary: "Capturing data through an edge to end data flow project. Capturing data via a BMP581 environmental data sensor into an Odroid-C2 and relaying that data over Modbus to a PLC and to an InfluxDB to be visualized via Grafana.",
         timeSpan: "July 2025",
         image: "",
-        tech: [""],
+        tech: [],
         featured: false,
         repo: "",
         status: "Completed",

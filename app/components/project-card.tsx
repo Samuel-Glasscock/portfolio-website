@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Project } from '@/lib/projects';
 import { SiGithub } from 'react-icons/si';
+import TechBadge from '@/app/components/tech-badge';
 
 const statusStyles: Record<Project['status'], string> = {
     Deployed: "bg-primary/15 text-primary",
@@ -63,16 +64,9 @@ export default function ProjectCard({
                     {/* Tech chips */}
                     {project.tech?.length ? (
                     <div className="mt-2 flex flex-wrap gap-2">
-                        {project.tech.slice(0, techMax).map((t) =>
-                        t ? (
-                            <span
-                            key={t}
-                            className="rounded-md bg-accent/30 px-2 py-0.5 text-sm text-accent-foreground/90"
-                            >
-                            {t}
-                            </span>
-                        ) : null
-                        )}
+                        {project.tech.slice(0, techMax).map((t) => (
+                            <TechBadge key={t} name={t} />
+                        ))}
                         {techMax < (project.tech?.length ?? 0) && (
                         <span className="rounded-md bg-muted px-2 py-0.5 text-xs text-muted-foreground">
                             +{(project.tech!.length - techMax).toString()}
