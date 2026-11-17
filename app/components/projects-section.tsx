@@ -1,35 +1,35 @@
 import Container from "@/app/components/container";
-import ProjectCard from "@/app/components/project-card";
+import ProjectRow from "@/app/components/project-row";
+import SectionHeading from "@/app/components/section-heading";
+import TextLink from "@/app/components/text-link";
 import { getAllProjects, getFeaturedProjects } from "@/lib/projects";
-import Link from "next/link";
 
 export default function ProjectsSection({
   featuredOnly = true,
-  variant = featuredOnly ? "compact" : "default",
   showHeader = true,
 }: {
   featuredOnly?: boolean;
-  variant?: "default" | "compact";
   showHeader?: boolean;
 }) {
   const projects = featuredOnly ? getFeaturedProjects() : getAllProjects();
 
   return (
-    <section className="py-10">
+    <section className="pb-14">
       <Container>
-        {showHeader && (
-          <div className="mb-4 flex items-center justify-between">
-            <h2>Projects</h2>
-            <Link href='/projects' className='rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:opacity-90'>
-                See all my Projects &#10132;
-            </Link>
-          </div>
+        {showHeader ? (
+          <SectionHeading
+            title="Selected projects"
+            action={<TextLink href="/projects">All projects</TextLink>}
+          />
+        ) : (
+          // No heading (the page supplies its own h1), but keep the rule that opens the list
+          <div className="mb-5 border-t-[3px] border-foreground" />
         )}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <ul>
           {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} variant={variant} />
+            <ProjectRow key={p.id} project={p} headingLevel={showHeader ? "h3" : "h2"} />
           ))}
-        </div>
+        </ul>
       </Container>
     </section>
   );

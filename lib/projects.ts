@@ -10,6 +10,8 @@ export type Project = {
     timeSpan?: string;
     tech?: TechName[];
     featured: boolean;
+    /** Shown first, in a highlighted row. Intended for one project at a time. */
+    pinned?: boolean;
     repo?: string;
     status: ProjectStatus;
 };
@@ -72,10 +74,15 @@ export const projects: Project[] = [
     },
 ];
 
+/** Pinned projects first; everything else keeps the order it is listed in above. */
+function pinnedFirst(list: Project[]): Project[] {
+    return [...list.filter(p => p.pinned), ...list.filter(p => !p.pinned)];
+}
+
 export function getAllProjects(): Project[] {
-    return projects;
+    return pinnedFirst(projects);
 }
 
 export function getFeaturedProjects(): Project[] {
-    return projects.filter(p => p.featured);
+    return pinnedFirst(projects.filter(p => p.featured));
 }
