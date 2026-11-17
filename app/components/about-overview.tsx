@@ -1,4 +1,5 @@
 import Container from '@/app/components/container';
+import TechBadge from '@/app/components/tech-badge';
 import Link from 'next/link';
 
 import {skills} from '@/lib/profile';
@@ -42,9 +43,7 @@ export default function AboutPreview() {
                                 <div className='text-sm font-semibold text-muted-foreground'>{group}</div>
                                 <div className='mt-1 flex flex-wrap gap-2'>
                                     {items.map((s) => (
-                                        <span key={s} className='rounded-md bg-accent/30 px-2 py-0.5 text-sm text-accent-foreground/90'>
-                                            {s}
-                                        </span>
+                                        <TechBadge key={s} name={s} />
                                     ))}
                                 </div>
                             </div>
