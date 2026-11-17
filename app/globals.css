@@ -14,22 +14,26 @@
   --color-border: var(--border);
   --color-sun: var(--sun);
   --color-moon: var(--moon);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo);
 }
 
+/*
+ * "Grey board" palette: a two-colour print job on card stock.
+ * Black ink does the reading, one red ink marks what is interactive or current,
+ * and a gold sticker flags work in progress. Every text/background pair below
+ * is at least 4.5:1 (WCAG AA) in both themes.
+ */
 :root {
-  --background: oklch(99% 0 0);
-  --foreground: oklch(21% 0.02 240);
-  --muted: oklch(96% 0.02 240);
-  --muted-foreground: oklch(48% 0.02 240);
-  --border: oklch(90% 0.02 240);
+  --background: #e7e5e0; /* the board */
+  --foreground: #171717; /* black ink */
+  --muted: #d8d5ce; /* a darker tint of the board: pinned row, quiet fills */
+  --muted-foreground: #55524c; /* secondary text, badge outlines */
+  --border: #bfbbb2; /* row dividers */
 
-  /* custom brand colors */
-  --primary: oklch(67% 0.13 200);
-  --primary-foreground: oklch(15% 0.02 240);
-  --accent: oklch(85% 0.16 130);
-  --accent-foreground: oklch(30% 0.06 130);
+  --primary: #a3290a; /* the second ink: links, active nav, focus ring */
+  --primary-foreground: #e7e5e0;
+  --accent: #f2c230; /* the sticker: "In Progress" */
+  --accent-foreground: #33270a;
 
   /* theme toggle icons; each sits on the inverted (bg-foreground) button */
   --sun: oklch(63% 0.17 70);
@@ -37,27 +41,69 @@
 }
 
 :root.dark {
-  --background: oklch(18% 0 0);
-  --foreground: oklch(96% 0.02 240);
-  --muted: oklch(24% 0.02 240);
-  --muted-foreground: oklch(72% 0.02 240);
-  --border: oklch(32% 0.02 240);
+  --background: #1b1b1c;
+  --foreground: #eeece7;
+  --muted: #2b2b2c;
+  --muted-foreground: #b5b2ac;
+  --border: #414143;
 
-  /* custom brand colors */
-  --primary: oklch(72% 0.10 200);
-  --primary-foreground: oklch(18% 0.02 240);
-  --accent: oklch(82% 0.13 130);
-  --accent-foreground: oklch(92% 0.05 130);
+  --primary: #ff9373;
+  --primary-foreground: #1b1b1c;
+  --accent: #f2c230;
+  --accent-foreground: #2a1f00;
 }
 
 @layer base {
+  /*
+   * Archivo is a variable font with a width axis. Headings use the condensed
+   * end of it (font-stretch below 100%) and body text the normal width, so one
+   * family covers both the "sleeve title" and the reading voice.
+   */
   h1 {
-    @apply text-4xl md:text-5xl font-bold tracking-tight text-foreground;
+    @apply font-extrabold text-foreground text-balance;
+    font-stretch: 66%;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.005em;
   }
   h2 {
-    @apply text-3xl md:text-4xl font-semibold text-foreground;
+    @apply font-extrabold text-foreground;
+    font-stretch: 70%;
+    font-size: 1.875rem;
+    line-height: 1.05;
   }
   h3 {
-    @apply text-2xl font-semibold text-foreground;
+    @apply font-bold text-foreground;
+    font-stretch: 75%;
+    font-size: 1.5rem;
+    line-height: 1.15;
+  }
+
+  /* One visible keyboard focus style for every link and button. */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  /*
+   * A list set as running text: "One / Two / Three". Used for coursework so a
+   * long list costs a few extra lines instead of a wall of chips. The separator
+   * belongs to the following item, so the last item never trails a slash.
+   */
+  .run-in > li {
+    display: inline;
+  }
+  .run-in > li + li::before {
+    content: " / ";
+    color: var(--primary);
+    font-weight: 700;
   }
 }

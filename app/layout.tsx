@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
 import Footer from '@/app/components/footer';
 import { siteUrl } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// One variable font file covers every weight; `axes: ["wdth"]` also includes the
+// width axis, which is what lets headings be condensed (font-stretch in CSS).
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 export const metadata: Metadata = {
@@ -94,9 +92,9 @@ export default function RootLayout({
         {/* Help form controls pick correct defaults */}
         <meta name="color-scheme" content="dark light" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground font-sans antialiased min-h-screen`}>
+      <body className={`${archivo.variable} bg-background text-foreground font-sans text-[1.0625rem] leading-[1.6] antialiased min-h-screen`}>
         <Navbar />
-        <main className="py-10">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
   </html>

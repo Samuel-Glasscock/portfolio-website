@@ -1,11 +1,10 @@
 import Container from '@/app/components/container'
-import Link from 'next/link'
 import { FaLinkedin } from 'react-icons/fa6'
 import { SiGithub, SiGmail } from 'react-icons/si'
 
-function SocialIcon({
-    href, 
-    label, 
+function SocialLink({
+    href,
+    label,
     children,
 } : {
     href: string,
@@ -14,40 +13,46 @@ function SocialIcon({
 }) {
     const external = href.startsWith('http');
     return (
-        <Link
+        <a
             href={href}
-            aria-label={label}
-            title={label}
             target={external ? '_blank' : undefined}
             rel={external ? 'noopener noreferrer' : undefined}
-            className='inline-flex items-center justify-center rounded-md border border-border bg-muted/60 p-2 hover:bg-muted'
+            className='inline-flex items-center gap-2 font-semibold transition-colors hover:text-primary'
         >
-        {children}
-        <span className='sr-only'>{label}</span>
-        </Link>
+            {children}
+            {label}
+            {external && <span className='sr-only'> (opens in a new tab)</span>}
+        </a>
     );
 }
 
 export default function Footer() {
     const year = new Date().getFullYear();
+    const credit = 'underline underline-offset-[3px] transition-colors hover:text-primary';
     return (
-        <footer className='border-t border-border/60 bg-background'>
+        <footer>
             <Container>
-                {/* Socials */}
-                <div className='flex items-center gap-2 pt-7 pb-4'>
-                    <SocialIcon href='https://github.com/Samuel-Glasscock' label='GitHub'>
-                        <SiGithub className='h-5 w-5' />
-                    </SocialIcon>
-                    <SocialIcon href='https://www.linkedin.com/in/samuel-glasscock/' label='LinkedIn'>
-                        <FaLinkedin className='h-5 w-5' />
-                    </SocialIcon>
-                    <SocialIcon href='mailto:samuel.c.glasscock@gmail.com' label='Email'>
-                        <SiGmail className='h-5 w-5' />
-                    </SocialIcon>
-                </div>
-                <div className='mb-5 flex items-center justify-between text-sm text-muted-foreground'>
-                    <span>&copy; {year} Samuel Glasscock</span>
-                    <span>Built with <a href='https://nextjs.org/'>Next.js</a> and <a href='https://tailwindcss.com/'>Tailwind</a></span>
+                <div className='mt-6 flex flex-wrap justify-between gap-x-8 gap-y-4 border-t-[3px] border-foreground pt-5.5 pb-10 text-[0.9375rem]'>
+                    <ul className='flex flex-wrap gap-x-6 gap-y-2'>
+                        <li>
+                            <SocialLink href='https://github.com/Samuel-Glasscock' label='GitHub'>
+                                <SiGithub aria-hidden='true' className='size-4' />
+                            </SocialLink>
+                        </li>
+                        <li>
+                            <SocialLink href='https://www.linkedin.com/in/samuel-glasscock/' label='LinkedIn'>
+                                <FaLinkedin aria-hidden='true' className='size-4' />
+                            </SocialLink>
+                        </li>
+                        <li>
+                            <SocialLink href='mailto:samuel.c.glasscock@gmail.com' label='Email'>
+                                <SiGmail aria-hidden='true' className='size-4' />
+                            </SocialLink>
+                        </li>
+                    </ul>
+                    <p className='text-muted-foreground'>
+                        &copy; {year} Samuel Glasscock. Built with <a href='https://nextjs.org/' className={credit}>Next.js</a> and <a href='https://tailwindcss.com/' className={credit}>Tailwind</a>.
+                    </p>
                 </div>
             </Container>
         </footer>

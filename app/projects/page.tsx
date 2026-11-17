@@ -1,3 +1,4 @@
+import Container from "@/app/components/container";
 import ProjectsSection from "@/app/components/projects-section";
 import type { Metadata } from "next";
 
@@ -15,5 +16,12 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsSection featuredOnly={false} showHeader={false} />;
+  return (
+    <>
+      <Container>
+        <h1 className="pt-12 pb-9">Projects</h1>
+      </Container>
+      <ProjectsSection featuredOnly={false} showHeader={false} />
+    </>
+  );
 }
