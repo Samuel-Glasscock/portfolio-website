@@ -38,7 +38,7 @@ export default function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-foreground"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-xs bg-foreground"
         aria-label="Toggle theme"
         // Prevent tiny differences from warning during hydration
         suppressHydrationWarning
@@ -54,7 +54,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-foreground transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-xs bg-foreground transition-opacity hover:opacity-85"
       aria-label={label}
       title={label}
     >
