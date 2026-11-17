@@ -2,7 +2,7 @@ import { tech, type TechName } from '@/lib/tech';
 
 /**
  * Outlined, clickable chip for a technology: logo + name, linking to its site.
- * Outlined = link; filled pills (e.g. project status) = non-interactive labels.
+ * Outlined + square = link; filled + round (e.g. project status) = non-interactive label.
  */
 export default function TechBadge({ name }: { name: TechName }) {
     const { Icon, href } = tech[name];
@@ -12,7 +12,7 @@ export default function TechBadge({ name }: { name: TechName }) {
             href={href}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center gap-1.5 rounded-md border border-border px-2 py-0.5 text-sm text-foreground/90 transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+            className='inline-flex items-center gap-1.5 rounded-xs border-[1.5px] border-muted-foreground px-2 py-[0.12rem] font-stretch-[88%] text-sm leading-[1.45] font-semibold transition-colors hover:border-foreground hover:bg-foreground hover:text-background'
         >
             <Icon aria-hidden='true' className='size-3.5 shrink-0' />
             {name}
